@@ -1,6 +1,6 @@
 using System;
 
-namespace Persist_asp_net
+namespace Persist
 {
     public class WeatherForecast
     {

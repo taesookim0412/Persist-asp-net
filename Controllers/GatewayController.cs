@@ -1,7 +1,15 @@
-﻿namespace Persist_asp_net.Controllers
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
+
+namespace Persist.Controllers
 {
-    public class GatewayController
+    public class GatewayController: Controller
     {
+        [HttpGet("gateway")]
+        public String Gateway()
+        {
+            return "{ \"Response\": \"Success\" }";
+        }
         
     }
 }

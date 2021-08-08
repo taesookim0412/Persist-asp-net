@@ -6,8 +6,10 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Persist.Data;
 
-namespace Persist_asp_net
+namespace Persist
 {
     public class Startup
     {
@@ -21,13 +23,18 @@ namespace Persist_asp_net
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            // services.AddControllersWithViews();
+            services.AddMvc(options => options.EnableEndpointRouting = false);
+            
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "persist/build";
             });
+
+            services.AddDbContext<PersistContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PersistContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -48,14 +55,15 @@ namespace Persist_asp_net
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
-            app.UseRouting();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
-            });
+            app.UseMvc();
+            // app.UseRouting();
+            //
+            // app.UseEndpoints(endpoints =>
+            // {
+            //     endpoints.MapControllerRoute(
+            //         name: "default",
+            //         pattern: "{controller}/{action=Index}/{id?}");
+            // });
 
             app.UseSpa(spa =>
             {

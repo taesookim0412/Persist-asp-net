@@ -1,8 +1,9 @@
-﻿namespace Persist_asp_net.Models
+﻿namespace Persist.Models
 {
-    public class Servers
+    public class Server
     {
-        public string ip { get; set; };
-        public string port { get; set; };
+        public int Id { get; set; }
+        public string ip { get; set; }
+        public string port { get; set; }
     }
 }
