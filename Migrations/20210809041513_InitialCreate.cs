@@ -12,8 +12,8 @@ namespace Persist.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ip = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    port = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Ip = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Port = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

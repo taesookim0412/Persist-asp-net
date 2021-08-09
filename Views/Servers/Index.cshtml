@@ -1,4 +1,4 @@
-@model IEnumerable<Persist.Models.Server>
+﻿@model IEnumerable<Persist.Models.Server>
 
 @{
     ViewData["Title"] = "Index";
@@ -13,10 +13,10 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.ip)
+                @Html.DisplayNameFor(model => model.Ip)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.port)
+                @Html.DisplayNameFor(model => model.Port)
             </th>
             <th></th>
         </tr>
@@ -25,10 +25,10 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ip)
+                @Html.DisplayFor(modelItem => item.Ip)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.port)
+                @Html.DisplayFor(modelItem => item.Port)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,24 +10,22 @@ using Persist.Models;
 
 namespace Persist.Controllers
 {
-    public class Server : Controller
+    public class ServersController : Controller
     {
         private readonly PersistContext _context;
 
-        public int Id { get; private set; }
-
-        public Server(PersistContext context)
+        public ServersController(PersistContext context)
         {
             _context = context;
         }
 
-        // GET: Server
+        // GET: Servers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Server.ToListAsync());
         }
 
-        // GET: Server/Details/5
+        // GET: Servers/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,18 +43,18 @@ namespace Persist.Controllers
             return View(server);
         }
 
-        // GET: Server/Create
+        // GET: Servers/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Server/Create
+        // POST: Servers/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ip,port")] Server server)
+        public async Task<IActionResult> Create([Bind("Id,Ip,Port")] Server server)
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +65,7 @@ namespace Persist.Controllers
             return View(server);
         }
 
-        // GET: Server/Edit/5
+        // GET: Servers/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -83,12 +81,12 @@ namespace Persist.Controllers
             return View(server);
         }
 
-        // POST: Server/Edit/5
+        // POST: Servers/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ip,port")] Server server)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Ip,Port")] Server server)
         {
             if (id != server.Id)
             {
@@ -118,7 +116,7 @@ namespace Persist.Controllers
             return View(server);
         }
 
-        // GET: Server/Delete/5
+        // GET: Servers/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,7 +134,7 @@ namespace Persist.Controllers
             return View(server);
         }
 
-        // POST: Server/Delete/5
+        // POST: Servers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -25,10 +25,10 @@ namespace Persist.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ip")
+                    b.Property<string>("Ip")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("port")
+                    b.Property<string>("Port")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

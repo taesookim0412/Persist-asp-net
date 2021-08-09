@@ -3,7 +3,7 @@
     public class Server
     {
         public int Id { get; set; }
-        public string ip { get; set; }
-        public string port { get; set; }
+        public string Ip { get; set; }
+        public string Port { get; set; }
     }
 }

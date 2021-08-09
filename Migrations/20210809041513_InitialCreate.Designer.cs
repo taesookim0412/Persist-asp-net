@@ -9,7 +9,7 @@ using Persist.Data;
 namespace Persist.Migrations
 {
     [DbContext(typeof(PersistContext))]
-    [Migration("20210808072328_InitialCreate")]
+    [Migration("20210809041513_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,10 +27,10 @@ namespace Persist.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ip")
+                    b.Property<string>("Ip")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("port")
+                    b.Property<string>("Port")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
